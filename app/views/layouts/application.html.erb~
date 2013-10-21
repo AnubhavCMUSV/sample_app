@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layout/shim' %>
+  </head>
+  <body>
+    <%= render 'layout/header' %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layout/footer' %>
+    </div>
+  </body>
 </html>
